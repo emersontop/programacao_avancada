@@ -111,3 +111,16 @@ void stringToAngle(string &text, float &angle){
 
     *p_angle = stof(text);
 }
+
+void computeCosSin(int &angle, float &cosValue, float &sinValue){
+    //graus
+    float *p_cosValue = &cosValue;
+    float *p_sinValue = &sinValue;
+    *p_cosValue =  sin
+    *p_sinValue =
+
+}
+
+void computeCosSin(float &angle, float &cosValue, float &sinValue){
+
+}
