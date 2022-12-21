@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-
+#include <math.h>
 #include "myfunctions.h"
 
 using namespace std;
@@ -86,16 +86,28 @@ int analyseString(string text){
     return tipo_de_ang;
 }
 
-void stringToAngle(string text, int angle){
+void stringToAngle(string text, int &angle){
     int *p_angle = &angle;
     *p_angle = stoi(text);
-    cout << angle << endl;
-    cout << *p_angle << endl;
-    cout << p_angle << endl;
-    cout << &angle << endl;
-    cout << "inteiro msr"<<endl;
 }
 
-void stringToAngle(string text, float angle){
-    angle = stof(text);
+void stringToAngle(string &text, float &angle){
+    int i;
+    string* p_str_text = &text;
+    string str_text = text;
+    float *p_angle = &angle;
+
+    //corrigindo a variável text
+    i=0;
+    for (string::iterator it=str_text.begin(); it!=str_text.end(); ++it)
+    {
+        if(*it==',')
+        {
+            *p_str_text = str_text.replace(i,1,".");
+        }
+
+        i++;
+    }
+
+    *p_angle = stof(text);
 }

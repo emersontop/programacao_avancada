@@ -9,8 +9,8 @@ string requestString();
 
 int analyseString(string text);
 
-void stringToAngle(string text, int angle);
+void stringToAngle(string text, int &angle);
 
-void stringToAngle(string text, float angle);
+void stringToAngle(string &text, float &angle);
 
 #endif
