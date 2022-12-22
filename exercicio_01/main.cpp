@@ -55,7 +55,7 @@ int main ()
     {
         float angle;
         stringToAngle(text, angle);
-        computeCosSin(angle, cosValue, sinValue);
+        computeCosSin2(angle, cosValue, sinValue);
         cout << "For " << angle << " radians, cos = " << cosValue << " and  sin = " << sinValue << endl;
     }
     else

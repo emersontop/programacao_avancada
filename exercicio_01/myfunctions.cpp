@@ -119,10 +119,9 @@ void computeCosSin(int angle, float &cosValue, float &sinValue){
     float angle_rad = (angle*3.14)/180;
     *p_cosValue =  sin(angle_rad);
     *p_sinValue = cos(angle_rad);
-
 }
 
-void computeCosSin(float angle, float &cosValue, float &sinValue){
+void computeCosSin2(float angle, float &cosValue, float &sinValue){
     //rad
     float *p_cosValue = &cosValue;
     float *p_sinValue = &sinValue;
