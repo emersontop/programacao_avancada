@@ -14,7 +14,7 @@ string requestString(){
     cout << "EX02: > 30.0 se for em radianos" <<endl;
     cout << "Valores com letras, espacos e/ou caracteres especiais serao considerados errados." <<endl;
     cin >> text;
-    cout << "Voce digitou na funcao 1: " << text << endl;
+    cout << "Voce digitou: " << text << endl;
 
     return text;
 }
@@ -112,19 +112,19 @@ void stringToAngle(string &text, float &angle){
     *p_angle = stof(text);
 }
 
-void computeCosSin(int angle, float &cosValue, float &sinValue){
-    //graus
+void computeCosSin_deg(int angle, float &cosValue, float &sinValue){
+    //grau
     float *p_cosValue = &cosValue;
     float *p_sinValue = &sinValue;
     float angle_rad = (angle*3.14)/180;
-    *p_cosValue =  sin(angle_rad);
-    *p_sinValue = cos(angle_rad);
+    *p_cosValue =  cos(angle_rad);
+    *p_sinValue = sin(angle_rad);
 }
 
-void computeCosSin2(float angle, float &cosValue, float &sinValue){
+void computeCosSin(float angle, float &cosValue, float &sinValue){
     //rad
     float *p_cosValue = &cosValue;
     float *p_sinValue = &sinValue;
-    *p_cosValue =  sin(angle);
-    *p_sinValue = cos(angle);
+    *p_cosValue =  cos(angle);
+    *p_sinValue = sin(angle);
 }

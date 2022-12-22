@@ -48,14 +48,14 @@ int main ()
     {
         int angle;
         stringToAngle(text, angle);
-        computeCosSin(angle, cosValue, sinValue);
+        computeCosSin_deg(angle, cosValue, sinValue);
         cout << "For " << angle << " degrees, cos = " << cosValue << " and  sin = " << sinValue << endl;
     }
     else if (typeText == 1)
     {
         float angle;
         stringToAngle(text, angle);
-        computeCosSin2(angle, cosValue, sinValue);
+        computeCosSin(angle, cosValue, sinValue);
         cout << "For " << angle << " radians, cos = " << cosValue << " and  sin = " << sinValue << endl;
     }
     else

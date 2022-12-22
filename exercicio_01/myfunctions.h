@@ -13,8 +13,8 @@ void stringToAngle(string text, int &angle);
 
 void stringToAngle(string &text, float &angle);
 
-void computeCosSin(int angle, float &cosValue, float &sinValue);
+void computeCosSin_deg(int angle, float &cosValue, float &sinValue);
 
-void computeCosSin2(float angle, float &cosValue, float &sinValue);
+void computeCosSin(float angle, float &cosValue, float &sinValue);
 
 #endif
