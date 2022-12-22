@@ -7,7 +7,7 @@
 #include <string>
 #include <sstream>
 #include <math.h>
-//#include "myfunctions.hpp"
+#include "myfunctions.h"
 
 using namespace std;
 
