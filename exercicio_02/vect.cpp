@@ -2,15 +2,9 @@
 #include <string>
 #include <sstream>
 #include <math.h>
-#include "myfunctions.h"
+#include "myfunctionsvect.h"
 
 using namespace std;
-
-struct vect{
-  string name;
-  int nbElement;
-  float* p_vector;
-};
 
 int main ()
 {
@@ -34,6 +28,6 @@ int main ()
 
   // Compute A*B
   float result = vectorialProduct(A,B);
-  cout << A.name << "*" << B.name << " = " << result << endl;
+  //cout << A.name << "*" << B.name << " = " << result << endl;
   return 0;
 }
