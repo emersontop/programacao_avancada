@@ -1,4 +1,9 @@
 #include <iostream>
+#include <string>
+#include <sstream>
+#include <math.h>
+#include "myfunctions.h"
+
 using namespace std;
 
 struct vect{
@@ -6,12 +11,6 @@ struct vect{
   int nbElement;
   float* p_vector;
 };
-
-/*
-TO COMPLETE
-...
-...
-*/
 
 int main ()
 {
