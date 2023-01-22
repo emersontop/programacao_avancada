@@ -1,12 +1,10 @@
 #include <iostream>
-using namespace std;
+#include <string>
+#include <sstream>
+#include <math.h>
+#include "myfunctionsmatrix.h"
 
-struct matrix{
-  string name;
-  int nbCol;
-  int nbLin;
-  float** p_matrix;
-};
+using namespace std;
 
 /*
 TO COMPLETE
@@ -38,6 +36,7 @@ int main ()
   // Compute C = A*B
   setMatrixName(C, "C");
   multiplyMatrices(A,B,C);
+  cout << "Matriz c" << endl;
   printMatrix(C);
   return 0;
 }
