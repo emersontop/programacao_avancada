@@ -17,6 +17,7 @@ int main(){
     Rectangle * foo , * bar , * baz ;
 
     foo = & obj ; // recebe o endreco de memoria do objeto "obj"
+    //pq usar o new, nao seria apenas para usar Rectangle(5,6)
     bar = new Rectangle (5, 6); // aloca memoria
     baz = new Rectangle [2] { {2 ,5} , {3 ,6} }; //aloca2 memorias
     
