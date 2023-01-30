@@ -6,11 +6,6 @@
 
 using namespace std;
 
-/*
-TO COMPLETE
-...
-...
-*/
 
 int main ()
 {
