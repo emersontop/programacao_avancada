@@ -1,20 +1,32 @@
-//cd '.\desktop\arquivos temporarios\02_faculdade\programacao_av'
 //cd C:\Users\eggui '.\Documents\02estudo\programacao_avancada\testes'
-//g++ ex.cpp myfunctions.cpp -o prog
-//./prog 
+//g++ ex5_poo.cpp -o ex5_poo
+//./ex5_poo
+
 #include <iostream>
 using namespace std;
 
-template <class T>
-    class mypair {
-        T values[2];
-    public:
-        mypair(T first, T second)
-        {values[0]=first; values[1]=second;}
+class CVector {
+    public :
+        int x,y;
+        CVector () {};
+        CVector ( int a, int b) : x(a), y(b) {}
+        CVector operator + ( const CVector &);
 };
 
+CVector CVector :: operator + ( const CVector & param ) {
+    CVector temp ;// o objeto de saida
+    //preencho o objeto de saida
+    temp .x = x + param .x;
+    temp .y = y + param .y;
+    
+    return temp ;
+}
+
 int main(){
-    mypair<int> myobject (115, 36);
-    mypair<double> myfloats (3.0, 2.18);
+    CVector foo (3 ,1);
+    CVector bar (1 ,2);
+    CVector result ;
+    result =  bar + foo;
+    cout << result .x << ',' << result .y << '\n';
     return 0;
 }

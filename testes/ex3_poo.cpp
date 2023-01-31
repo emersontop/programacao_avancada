@@ -1,15 +1,14 @@
-//cd '.\desktop\arquivos temporarios\02_faculdade\programacao_av'
 //cd C:\Users\eggui '.\Documents\02estudo\programacao_avancada\testes'
-//g++ ex.cpp myfunctions.cpp -o prog
-//./prog 
+//g++ ex3_poo.cpp -o ex3_poo
+//./ex3_poo 
 #include <iostream>
 using namespace std;
 
 class Rectangle {
     int width, height;
     public:
-    Rectangle();
-    Rectangle(int, int);
+    Rectangle(); // construtor 1
+    Rectangle(int, int); // construtor 2
     int area() {return width*height;}
 };
 

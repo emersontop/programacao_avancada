@@ -1,7 +1,7 @@
-//cd '.\desktop\arquivos temporarios\02_faculdade\programacao_av'
 //cd C:\Users\eggui '.\Documents\02estudo\programacao_avancada\testes'
-//g++ ex.cpp myfunctions.cpp -o prog
-//./prog 
+//g++ ex4_poo.cpp -o ex4_poo
+//./ex4_poo
+
 #include <iostream>
 using namespace std;
 
