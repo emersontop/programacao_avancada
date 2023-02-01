@@ -1,4 +1,4 @@
-//cd C:\Users\eggui '.\Documents\02estudo\programacao_avancada\testes'
+//cd C:\Users\eggui '.\Documents\02estudo\programacao_avancada\mike_shah\aula37'
 //g++ aula37_poo.cpp Student.cpp -o aula37_poo
 //./aula37_poo 
 
