@@ -8,6 +8,8 @@ class Array {
         Array();
         //destructor
         ~Array();
+        //copy constructor
+        Array(const Array& rhs);
         //imprime dados
         void Printingdata();
         //

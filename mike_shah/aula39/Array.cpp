@@ -5,6 +5,7 @@
 using namespace std;
 
 Array::Array(){
+    cout<< "Contructor" <<endl;
     data = new int[10];
     for(int i=0;i<10;i++){
         data[i]=i*i;
@@ -12,7 +13,17 @@ Array::Array(){
 }
 
 Array::~Array(){
+    cout<< "Destructor" <<endl;
     delete[] data;
+}
+
+Array::Array(const Array& rhs){
+    cout<< "Copy Contructor" <<endl;
+    delete[] data;
+    data = new int[10];
+    for(int i=0;i<10;i++){
+        data[i]=rhs.data[i];
+    }
 }
 
 void Array::Printingdata(){
