@@ -1,4 +1,5 @@
-#include "Array.h"
+#include "Array.h" 
+#include <vector>
 
 #include <iostream>
 
@@ -36,7 +37,7 @@ Array& Array::operator=(const Array& rhs){
         data[i]=rhs.data[i];
     }
 
-    return *this;
+    return *this; 
 }
 
 void Array::Printingdata(){

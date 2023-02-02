@@ -10,7 +10,7 @@ class Array {
         ~Array();
         //copy constructor
         Array(const Array& rhs);
-        //copy Assignmet operatorr.
+        //copy Assignmet operator.
         Array& operator=(const Array& rhs);
         //imprime dados
         void Printingdata();
