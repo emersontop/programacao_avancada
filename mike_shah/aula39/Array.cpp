@@ -19,11 +19,24 @@ Array::~Array(){
 
 Array::Array(const Array& rhs){
     cout<< "Copy Contructor" <<endl;
-    delete[] data;
     data = new int[10];
     for(int i=0;i<10;i++){
         data[i]=rhs.data[i];
     }
+}
+
+Array& Array::operator=(const Array& rhs){
+    cout<< "Copy assignment operator" <<endl;
+    if (&rhs == this){
+        return *this;
+    }
+    delete[] data;
+        data = new int[10];
+    for(int i=0;i<10;i++){
+        data[i]=rhs.data[i];
+    }
+
+    return *this;
 }
 
 void Array::Printingdata(){

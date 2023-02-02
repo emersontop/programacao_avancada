@@ -12,8 +12,16 @@ using namespace std;
 int main(){
 
     Array myArray;
+    
     myArray.SetData(0,100000);
+    myArray.SetData(1,77);
+    myArray.SetData(2,200);
+    
+    Array myArray2;
+    myArray2 = myArray;
+
     myArray.Printingdata();
+    myArray2.Printingdata();
 
     return 0;
 }
