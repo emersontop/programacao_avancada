@@ -9,19 +9,22 @@
 
 using namespace std;
 
+void printAnArray(const Array& a) {
+    //fazer nada
+}
+
 int main(){
 
     Array myArray;
     
-    myArray.SetData(0,100000);
-    myArray.SetData(1,77);
-    myArray.SetData(2,200);
+    myArray.SetData(0,1234567);
     
-    Array myArray2;
-    myArray2 = myArray;
+    Array myArray2= myArray;
 
-    myArray.Printingdata();
-    myArray2.Printingdata();
+    //myArray.Printingdata();
+    //myArray2.Printingdata();
+
+    printAnArray(myArray);
 
     return 0;
 }

@@ -8,7 +8,7 @@ using namespace std;
 
 Array::Array(){
     cout<< "Contructor" <<endl;
-    for(int i=0;i<10;i++){
+    for(int i=0;i<1;i++){
         data.push_back(i);
     }
 }
@@ -20,7 +20,7 @@ Array::~Array(){
 
 Array::Array(const Array& rhs){
     cout<< "Copy Contructor" <<endl;
-    for(int i=0;i<10;i++){
+    for(int i=0;i<rhs.data.size();i++){
         data.push_back(rhs.data[i]);
     }
 }
@@ -31,7 +31,7 @@ Array& Array::operator=(const Array& rhs){
         return *this;
     }
     data.clear();
-    for(int i=0;i<10;i++){
+    for(int i=0;i<rhs.data.size();i++){
         data.push_back(rhs.data[i]);
     }
 
@@ -39,7 +39,7 @@ Array& Array::operator=(const Array& rhs){
 }
 
 void Array::Printingdata(){
-    for(int i=0;i<10;i++){
+    for(int i=0;i<data.size();i++){
         cout << data[i] << endl;
     }
 }

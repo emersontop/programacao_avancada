@@ -3,6 +3,8 @@
 
 #include<vector>
 
+using namespace std;
+
 //definicaoda class
 class Array {
     public:
