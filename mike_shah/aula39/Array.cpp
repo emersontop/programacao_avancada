@@ -1,28 +1,27 @@
 #include "Array.h" 
-#include <vector>
 
 #include <iostream>
+
+#include<vector>
 
 using namespace std;
 
 Array::Array(){
     cout<< "Contructor" <<endl;
-    data = new int[10];
     for(int i=0;i<10;i++){
-        data[i]=i*i;
+        data.push_back(i);
     }
 }
 
 Array::~Array(){
     cout<< "Destructor" <<endl;
-    delete[] data;
+    //delete[] data;
 }
 
 Array::Array(const Array& rhs){
     cout<< "Copy Contructor" <<endl;
-    data = new int[10];
     for(int i=0;i<10;i++){
-        data[i]=rhs.data[i];
+        data.push_back(rhs.data[i]);
     }
 }
 
@@ -31,10 +30,9 @@ Array& Array::operator=(const Array& rhs){
     if (&rhs == this){
         return *this;
     }
-    delete[] data;
-        data = new int[10];
+    data.clear();
     for(int i=0;i<10;i++){
-        data[i]=rhs.data[i];
+        data.push_back(rhs.data[i]);
     }
 
     return *this; 

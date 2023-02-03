@@ -1,6 +1,8 @@
 #ifndef ARRAY_H
 #define ARRAY_H
 
+#include<vector>
+
 //definicaoda class
 class Array {
     public:
@@ -17,7 +19,7 @@ class Array {
         //
         void SetData(int index, int value);
     private:
-        int* data;
+        vector<int>data;
 };
 
 #endif
