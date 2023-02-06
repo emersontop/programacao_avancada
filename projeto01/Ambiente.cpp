@@ -34,7 +34,13 @@ Ambiente::Ambiente(string entradas){
     else{
         cout <<"Unable to opne file"<<endl;
     }
+    printSetupAmbiente();
+    alocarMemoriaMatriz();
+    iniciarMatrizZeros();
+    addObstaculosEntrada(); 
+}
 
+void Ambiente::printSetupAmbiente(){
     cout<<"O numero de linhas do ambiente: "<< dimAmbiente[0] <<endl;
     cout<<"O numero de colunas do ambiente: "<< dimAmbiente[1] <<endl;
     cout<<"A posicao inicial em x: "<< posicaoInicial[0] <<endl;
@@ -61,18 +67,15 @@ Ambiente::Ambiente(string entradas){
         cout<<obstaculoRecFinal[i]<<',';
     }
     cout<<endl;
-
-    alocarMemoriaMatriz();
-    iniciarMatrizZeros();
-    addObstaculosEntrada(); 
 }
 
 void Ambiente::limpaInformacao(string& informacao){
+    bool caracterErrado;
     string informacaoAuxiliar;
     for (string::iterator it=informacao.begin(); it!=informacao.end(); ++it){
         //Analisa se existe algum caracter errado
-        if((*it!= '0' && *it!='1' && *it!='2' && *it!='3' && *it!='4' && *it!='5' && *it!='6' && *it!='7' && *it!='8' && *it!='9')){
-            //nao faz nada
+        if((*it!= '0' && *it!='1' && *it!='2' && *it!='3' && *it!='4' && *it!='5' && *it!='6' && *it!='7' && *it!='8' && *it!='9'&& *it!=',')){
+            cout<<"APRESENTA CARACTER ERRADO NA INFORMACAO"<<endl;
         }else{
             informacaoAuxiliar+=*it;
         }
@@ -103,11 +106,6 @@ void Ambiente::separaTagInformacao(string line, string& tag, string& informacao)
         ++it;
     }
     limpaInformacao(informacao);
-
-    /*cout << "Linha: "<<line<<endl;
-    cout<<"TAG: "<< tag <<endl;
-    cout<<"informacao: "<< informacao <<endl;
-    cout<<endl;*/
 }
 
 void Ambiente::analisaTagInformacao(string& tag,string& informacao){
@@ -125,37 +123,53 @@ void Ambiente::analisaTagInformacao(string& tag,string& informacao){
         numObstaculoCelula=stoi(informacao);
     }else if(tag == "obstaculoCelulaX"){
         i=0;
+        auxIt.clear();
         for (string::iterator it=informacao.begin(); it!=informacao.end(); ++it){
-            auxIt.clear();
-            auxIt = *it;
-            obstaculoCelulaX[i]=stoi(auxIt);
-            i++;
+            if(*it==','){
+                obstaculoCelulaX[i]=stoi(auxIt);
+                auxIt.clear();
+                i++;
+            }else{
+                auxIt += *it;
+            }
         }
     }else if(tag == "obstaculoCelulaY"){
         i=0;
+        auxIt.clear();
         for (string::iterator it=informacao.begin(); it!=informacao.end(); ++it){
-            auxIt.clear();
-            auxIt = *it;
-            obstaculoCelulaY[i]=stoi(auxIt);
-            i++;
+            if(*it==','){
+                obstaculoCelulaY[i]=stoi(auxIt);
+                auxIt.clear();
+                i++;
+            }else{
+                auxIt += *it;
+            }
         }
     }else if(tag == "numObstaculoRetangulo"){
         numObstaculoRetangulo=stoi(informacao);
     }else if(tag == "obstaculoRecInicial"){
         i=0;
+        auxIt.clear();
         for (string::iterator it=informacao.begin(); it!=informacao.end(); ++it){
-            auxIt.clear();
-            auxIt = *it;
-            obstaculoRecInicial[i]=stoi(auxIt);
-            i++;
+            if(*it==','){
+                obstaculoRecInicial[i]=stoi(auxIt);
+                auxIt.clear();
+                i++;
+            }else{
+                auxIt += *it;
+            }
         }
     }else if(tag == "obstaculoRecFinal"){
         i=0;
+        auxIt.clear();
         for (string::iterator it=informacao.begin(); it!=informacao.end(); ++it){
-            auxIt.clear();
-            auxIt = *it;
-            obstaculoRecFinal[i]=stoi(auxIt);
-            i++;
+            if(*it==','){
+                obstaculoRecFinal[i]=stoi(auxIt);
+                auxIt.clear();
+                i++;
+            }else{
+                auxIt += *it;
+            }
         }
     }else{
         cout<< "nao identifiquei a tag" <<endl;
@@ -188,10 +202,16 @@ void Ambiente::printAmbiente(){
 }
 
 void Ambiente::addObstaculoCelula(int x, int y){
-    for(int i=0;i<dimAmbiente[0];i++){
-        for(int j=0;j<dimAmbiente[1];j++){
-            if(i==x && j==y){
-                pp_ambiente[i][j]=1;//como se um representasse o obstaculo
+    if(x>dimAmbiente[0]||y>dimAmbiente[1]){
+        cout<<"O OBSTACULO ESTA FORA DO AMBIENTE, NAO PODE SER COLOCADO"<< endl;
+    }else if(x==posicaoInicial[0]&&y==posicaoInicial[1]){
+        cout<<"O OBSTACULO ESTA NO PONTO DE CARREGAMENTO, NAO PODE SER COLOCADO"<< endl;
+    }else{
+        for(int i=0;i<dimAmbiente[0];i++){
+            for(int j=0;j<dimAmbiente[1];j++){
+                if(i==x && j==y){
+                    pp_ambiente[i][j]=1;//como se um representasse o obstaculo
+                }
             }
         }
     }
@@ -205,7 +225,6 @@ void Ambiente::addObstaculosEntrada(){
 
     //adicionando obstaculos retangulo
     for(int i=1;i<(2*numObstaculoRetangulo);i=i+2){
-        cout<<"teste"<<endl;
         addObstaculoRetangulo(obstaculoRecInicial[i-1],obstaculoRecInicial[i],obstaculoRecFinal[i-1],obstaculoRecFinal[i]);
     }
 }
@@ -213,7 +232,6 @@ void Ambiente::addObstaculosEntrada(){
 void Ambiente::addObstaculoRetangulo(int xi, int yi, int xf, int yf){
     for(int i=xi;i<=xf;i++){
         for(int j=yi;j<=yf;j++){
-            cout<<"teste 2"<<endl;
             addObstaculoCelula(i,j);
         }
     }

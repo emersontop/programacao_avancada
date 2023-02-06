@@ -14,6 +14,7 @@ class Ambiente {
         void alocarMemoriaMatriz();
         void iniciarMatrizZeros();
         void addObstaculosEntrada();
+        void printSetupAmbiente();
 
     public:
         string entradas;
