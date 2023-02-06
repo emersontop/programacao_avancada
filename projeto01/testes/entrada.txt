@@ -1,0 +1,10 @@
+oNumeroDeLinhas:9
+oNumeroDeColunas:9
+posicaoInicialX:0
+posicaoInicialY:0
+numObstaculoCelula:4
+obstaculoCelulaX:2,4,8,7
+obstaculoCelulaY:6,8,2,4
+numObstaculoRetangulo:1
+obstaculoRecInicial:5,9
+obstaculoRecFinal:9,9
