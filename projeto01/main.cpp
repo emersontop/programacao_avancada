@@ -6,14 +6,14 @@
 #include <string>
 
 #include "Ambiente.h"
+#include "Robo.h"
 
 using namespace std;
 
 int main(){
     Ambiente cozinha("entradas.txt");
-    //cozinha.printAmbiente();
-    //cozinha.addObstaculo(1,1);
-    //cozinha.addObstaculo(2,2);
     cozinha.printAmbiente();
+    Robo obelix("obelix","entradas.txt");
+    obelix.printAmbienteRobo();
     return 0;
 }
