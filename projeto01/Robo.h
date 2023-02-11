@@ -30,4 +30,33 @@ class Robo{
         void printAmbienteRobo();
 };
 
+
+class Modelo01:public Robo{
+    public:
+        //atributos
+        bool parachoque;
+
+
+        //metodos
+        //construtor
+        Modelo01();
+        void Limpar(int x, int y);
+        void mover(int novaPosicaoX, int novaPosicaoY);
+        void Ligar();
+};
+
+class Modelo02:public Robo{
+    public:
+        //atributos
+        bool parachoque;
+        bool laser;
+        int oritentacao;
+
+        //metodos
+        //construtor
+        Modelo02();
+        void Limpar(int x, int y);
+        void mover(int novaPosicaoX, int novaPosicaoY);
+        void Ligar();
+};
 #endif

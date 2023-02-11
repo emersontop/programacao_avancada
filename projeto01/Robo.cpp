@@ -102,7 +102,7 @@ void Robo::printSetup(){
 }
 
 void Robo::parar(){
-
+    cout<<"O robo parou e vai desligar"<<endl;
 }
 
 void Robo::alocarMemoriaMatriz(){
@@ -121,6 +121,7 @@ void Robo::iniciarMatrizZeros(){
 }
 
 void Robo::addPontoDeRecarga(){
+    //ACHO QUE NAO PRECISA DO FOR, SO PRECISA PASSA AS COORDENADAS QUE VAO SER PRENCHIDAS COMO PONTO DE RECARGA.
     for(int i=0;i<dimAmbiente[0];i++){
         for(int j=0;j<dimAmbiente[1];j++){
             if(i==posicaoInicial[0] && j==posicaoInicial[1]){
@@ -138,4 +139,44 @@ void Robo::printAmbienteRobo(){
         cout<<endl;
         cout<<endl;
     }
+}
+
+// classe robo> Modelo01
+Modelo01::Modelo01():Robo("padrao01", "entradas.txt"){
+    //usa o construtor padrao de robo
+}
+
+void Modelo01::Limpar(int x, int y){
+    cout<<"Area limpa"<<endl;
+}
+
+void Modelo01::mover(int novaPosicaoX, int novaPosicaoY){
+    posicaoAtualRobo[0]=novaPosicaoX;
+    posicaoAtualRobo[1]=novaPosicaoY;
+}
+
+void Modelo01:: Ligar(){
+
+}
+
+
+
+
+
+// classe robo> Modelo02
+Modelo02::Modelo02():Robo("padrao02", "entradas.txt"){
+    //usa o construtor padrao de robo
+}
+
+void Modelo02::Limpar(int x, int y){
+    cout<<"Area limpa"<<endl;
+}
+
+void Modelo02::mover(int novaPosicaoX, int novaPosicaoY){
+    posicaoAtualRobo[0]=novaPosicaoX;
+    posicaoAtualRobo[1]=novaPosicaoY;
+}
+
+void Modelo02:: Ligar(){
+    
 }

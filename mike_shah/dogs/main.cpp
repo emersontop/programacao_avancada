@@ -20,7 +20,7 @@ class Dog{
 class Golden: public Dog{
     public:
         Golden(){
-            m_sticksRetrivied=0;
+            m_sticksRetrivied=0; 
 
         }
 
