@@ -9,7 +9,8 @@ class ParaChoque{
         //metodos
         //construtor;
         ParaChoque();
-        void CalcularColisao();
+        //bool CalcularColisao(int** matriz,int direcao, int* posicaoAtual);
+        bool CalcularColisao(int** matriz,int posicaoFuturaX, int posicaoFuturaY);
 
 };
 

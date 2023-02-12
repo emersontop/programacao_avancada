@@ -142,7 +142,7 @@ void Robo::printAmbienteRobo(){
 }
 
 // classe robo> Modelo01
-Modelo01::Modelo01():Robo("padrao01", "entradas.txt"){
+Modelo01::Modelo01(string nome, string entradas):Robo(nome,entradas){
     //usa o construtor padrao de robo
 }
 
@@ -151,8 +151,13 @@ void Modelo01::Limpar(int x, int y){
 }
 
 void Modelo01::mover(int novaPosicaoX, int novaPosicaoY){
-    posicaoAtualRobo[0]=novaPosicaoX;
-    posicaoAtualRobo[1]=novaPosicaoY;
+    if(ParaChoqueRobo.CalcularColisao(pp_ambienteRobo,novaPosicaoX,novaPosicaoY)){
+        posicaoAtualRobo[0]=novaPosicaoX;
+        posicaoAtualRobo[1]=novaPosicaoY;
+        bateriaDoRobo.Descarregar();
+    }else{
+        cout<<"O robo nao pode se mover"<<endl;
+    }
 }
 
 void Modelo01:: Ligar(){
@@ -164,7 +169,7 @@ void Modelo01:: Ligar(){
 
 
 // classe robo> Modelo02
-Modelo02::Modelo02():Robo("padrao02", "entradas.txt"){
+Modelo02::Modelo02(string nome, string entradas):Robo(nome,entradas){
     //usa o construtor padrao de robo
 }
 
@@ -173,8 +178,13 @@ void Modelo02::Limpar(int x, int y){
 }
 
 void Modelo02::mover(int novaPosicaoX, int novaPosicaoY){
-    posicaoAtualRobo[0]=novaPosicaoX;
-    posicaoAtualRobo[1]=novaPosicaoY;
+    if(ParaChoqueRobo.CalcularColisao(pp_ambienteRobo,novaPosicaoX,novaPosicaoY)){
+        posicaoAtualRobo[0]=novaPosicaoX;
+        posicaoAtualRobo[1]=novaPosicaoY;
+        bateriaDoRobo.Descarregar();
+    }else{
+        cout<<"O robo nao pode se mover"<<endl;
+    }
 }
 
 void Modelo02:: Ligar(){

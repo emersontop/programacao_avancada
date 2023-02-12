@@ -2,6 +2,8 @@
 #define ROBO_H
 
 #include <string>
+#include "Bateria.h"
+#include "ParaChoque.h"
 
 using namespace std;
 
@@ -20,8 +22,10 @@ class Robo{
         int posicaoAtualRobo[2];
         int posicaoInicial[2];
         int dimAmbiente[2];
-        int bateria;
+        //int bateria;
+        Bateria bateriaDoRobo;
         int** pp_ambienteRobo;
+        ParaChoque ParaChoqueRobo;
 
         //metodos
         //construtor
@@ -39,7 +43,7 @@ class Modelo01:public Robo{
 
         //metodos
         //construtor
-        Modelo01();
+        Modelo01(string nome, string entradas);
         void Limpar(int x, int y);
         void mover(int novaPosicaoX, int novaPosicaoY);
         void Ligar();
@@ -54,7 +58,7 @@ class Modelo02:public Robo{
 
         //metodos
         //construtor
-        Modelo02();
+        Modelo02(string nome, string entradas);
         void Limpar(int x, int y);
         void mover(int novaPosicaoX, int novaPosicaoY);
         void Ligar();
