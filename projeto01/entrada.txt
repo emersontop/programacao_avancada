@@ -1,10 +1,10 @@
-oNumeroDeLinhas:15
-oNumeroDeColunas:15
+oNumeroDeLinhas:8
+oNumeroDeColunas:8
 posicaoInicialX:0
 posicaoInicialY:0
 numObstaculoCelula:4
-obstaculoCelulaX:6,10,9,2,
-obstaculoCelulaY:1,12,1,1,
+obstaculoCelulaX:1,2,3,4,
+obstaculoCelulaY:1,2,3,4,
 numObstaculoRetangulo:1,
-obstaculoRecInicial:10,10,
-obstaculoRecFinal:14,14,
+obstaculoRecInicial:5,5,
+obstaculoRecFinal:7,7,

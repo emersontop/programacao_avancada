@@ -16,3 +16,4 @@ Descrição visual do ambiente em formato de matriz
 - 1 > Representa que a celual tem obstaculo
 - 111 > representa o ponto de recarga/local inicial do robô.
 - 88 > representa a posicao atual do robô
+- 2 > Ambiente limpo

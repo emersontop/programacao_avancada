@@ -39,6 +39,8 @@ Robo::Robo(string nome, string entradas){
     alocarMemoriaMatriz();
     iniciarMatrizZeros();
     addPontoDeRecarga();
+    posicaoAtualRobo[0]=posicaoInicial[0];
+    posicaoAtualRobo[1]=posicaoInicial[1];
 }
 
 void Robo::separaTagInformacao(string line, string& tag, string& informacao){
@@ -150,11 +152,14 @@ void Modelo01::Limpar(int x, int y){
     cout<<"Area limpa"<<endl;
 }
 
-void Modelo01::mover(int novaPosicaoX, int novaPosicaoY){
-    if(ParaChoqueRobo.CalcularColisao(pp_ambienteRobo,novaPosicaoX,novaPosicaoY)){
+void Modelo01::mover(int** pp_ambienteReal,int novaPosicaoX, int novaPosicaoY){
+    if(ParaChoqueRobo.CalcularColisao(pp_ambienteReal,novaPosicaoX,novaPosicaoY)){
+        cout<<"O robo vai se mover"<<endl;
+        pp_ambienteRobo[posicaoAtualRobo[0]][posicaoAtualRobo[1]]=2;
         posicaoAtualRobo[0]=novaPosicaoX;
         posicaoAtualRobo[1]=novaPosicaoY;
         bateriaDoRobo.Descarregar();
+        pp_ambienteRobo[novaPosicaoX][novaPosicaoY] = 88;
     }else{
         cout<<"O robo nao pode se mover"<<endl;
     }
@@ -177,11 +182,14 @@ void Modelo02::Limpar(int x, int y){
     cout<<"Area limpa"<<endl;
 }
 
-void Modelo02::mover(int novaPosicaoX, int novaPosicaoY){
-    if(ParaChoqueRobo.CalcularColisao(pp_ambienteRobo,novaPosicaoX,novaPosicaoY)){
+void Modelo02::mover(int** pp_ambienteReal,int novaPosicaoX, int novaPosicaoY){
+    if(ParaChoqueRobo.CalcularColisao(pp_ambienteReal,novaPosicaoX,novaPosicaoY)){
+        cout<<"O robo vai se mover"<<endl;
+        pp_ambienteRobo[posicaoAtualRobo[0]][posicaoAtualRobo[1]]=2;
         posicaoAtualRobo[0]=novaPosicaoX;
         posicaoAtualRobo[1]=novaPosicaoY;
         bateriaDoRobo.Descarregar();
+        pp_ambienteRobo[novaPosicaoX][novaPosicaoY] = 88;
     }else{
         cout<<"O robo nao pode se mover"<<endl;
     }

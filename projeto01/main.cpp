@@ -20,10 +20,10 @@ int main(){
     Modelo01 obelix("obelix","entradas.txt");
     //obelix.printAmbienteRobo();
     cout<<"Esse e o nivel de bateria do robo: "<<obelix.bateriaDoRobo.nivel<<endl;
-    obelix.mover(1,1);
+    obelix.mover(cozinha.pp_ambiente,0,1);
     obelix.printAmbienteRobo();
     cout<<"Esse e o nivel de bateria do robo"<<obelix.bateriaDoRobo.nivel<<endl;
-    obelix.mover(2,1);
+    obelix.mover(cozinha.pp_ambiente,1,1);
     obelix.printAmbienteRobo();
     cout<<"Esse e o nivel de bateria do robo"<<obelix.bateriaDoRobo.nivel<<endl;
     return 0;

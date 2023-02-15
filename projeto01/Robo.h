@@ -22,9 +22,10 @@ class Robo{
         int posicaoAtualRobo[2];
         int posicaoInicial[2];
         int dimAmbiente[2];
-        //int bateria;
+        //bateria;
         Bateria bateriaDoRobo;
         int** pp_ambienteRobo;
+        //parachoque
         ParaChoque ParaChoqueRobo;
 
         //metodos
@@ -45,7 +46,7 @@ class Modelo01:public Robo{
         //construtor
         Modelo01(string nome, string entradas);
         void Limpar(int x, int y);
-        void mover(int novaPosicaoX, int novaPosicaoY);
+        void mover(int** pp_ambienteReal,int novaPosicaoX, int novaPosicaoY);
         void Ligar();
 };
 
@@ -60,7 +61,7 @@ class Modelo02:public Robo{
         //construtor
         Modelo02(string nome, string entradas);
         void Limpar(int x, int y);
-        void mover(int novaPosicaoX, int novaPosicaoY);
+        void mover(int** pp_ambienteReal,int novaPosicaoX, int novaPosicaoY);
         void Ligar();
 };
 #endif
