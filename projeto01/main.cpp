@@ -19,12 +19,6 @@ int main(){
     //cozinha.printAmbiente();
     Modelo01 obelix("obelix","entradas.txt");
     //obelix.printAmbienteRobo();
-    cout<<"Esse e o nivel de bateria do robo: "<<obelix.bateriaDoRobo.nivel<<endl;
-    obelix.mover(cozinha.pp_ambiente,0,1);
-    obelix.printAmbienteRobo();
-    cout<<"Esse e o nivel de bateria do robo"<<obelix.bateriaDoRobo.nivel<<endl;
-    obelix.mover(cozinha.pp_ambiente,1,1);
-    obelix.printAmbienteRobo();
-    cout<<"Esse e o nivel de bateria do robo"<<obelix.bateriaDoRobo.nivel<<endl;
+    obelix.Ligar(cozinha.pp_ambiente);
     return 0;
 }

@@ -46,8 +46,8 @@ class Modelo01:public Robo{
         //construtor
         Modelo01(string nome, string entradas);
         void Limpar(int x, int y);
-        void mover(int** pp_ambienteReal,int novaPosicaoX, int novaPosicaoY);
-        void Ligar();
+        bool mover(int** pp_ambienteReal,int novaPosicaoX, int novaPosicaoY);
+        void Ligar(int** pp_ambienteReal);
 };
 
 class Modelo02:public Robo{

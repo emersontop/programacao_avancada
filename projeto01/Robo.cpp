@@ -152,21 +152,54 @@ void Modelo01::Limpar(int x, int y){
     cout<<"Area limpa"<<endl;
 }
 
-void Modelo01::mover(int** pp_ambienteReal,int novaPosicaoX, int novaPosicaoY){
-    if(ParaChoqueRobo.CalcularColisao(pp_ambienteReal,novaPosicaoX,novaPosicaoY)){
+bool Modelo01::mover(int** pp_ambienteReal,int novaPosicaoX, int novaPosicaoY){
+    if(ParaChoqueRobo.CalcularColisao(pp_ambienteReal,novaPosicaoX,novaPosicaoY)&&(novaPosicaoX<dimAmbiente[0]&&novaPosicaoY<dimAmbiente[1])){
         cout<<"O robo vai se mover"<<endl;
         pp_ambienteRobo[posicaoAtualRobo[0]][posicaoAtualRobo[1]]=2;
         posicaoAtualRobo[0]=novaPosicaoX;
         posicaoAtualRobo[1]=novaPosicaoY;
         bateriaDoRobo.Descarregar();
         pp_ambienteRobo[novaPosicaoX][novaPosicaoY] = 88;
+        return true;
     }else{
         cout<<"O robo nao pode se mover"<<endl;
+        return false;
     }
 }
 
-void Modelo01:: Ligar(){
-
+void Modelo01:: Ligar(int** pp_ambienteReal){
+    int posicaoFutura[2];
+    while(bateriaDoRobo.nivel>0){
+        //direita
+        posicaoFutura[0] = posicaoAtualRobo[0];
+        posicaoFutura[1] = posicaoAtualRobo[1]+1;
+        while(mover(pp_ambienteReal,posicaoFutura[0],posicaoFutura[1])){
+            printAmbienteRobo();
+            // se move
+        }
+        //baixo
+        posicaoFutura[0] = posicaoAtualRobo[0]-1;
+        posicaoFutura[1] = posicaoAtualRobo[1];
+        while(mover(pp_ambienteReal,posicaoFutura[0],posicaoFutura[1])){
+            printAmbienteRobo();
+            // se move
+        }
+        //esquerda
+        posicaoFutura[0] = posicaoAtualRobo[0];
+        posicaoFutura[1] = posicaoAtualRobo[1]-1;
+        while(mover(pp_ambienteReal,posicaoFutura[0],posicaoFutura[1])){
+            printAmbienteRobo();
+            // se move
+        }
+        //cima
+        posicaoFutura[0] = posicaoAtualRobo[0]+1;
+        posicaoFutura[1] = posicaoAtualRobo[1];
+        while(mover(pp_ambienteReal,posicaoFutura[0],posicaoFutura[1])){
+            printAmbienteRobo();
+            // se move
+        }
+        
+    }
 }
 
 
