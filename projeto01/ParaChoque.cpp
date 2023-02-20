@@ -73,10 +73,10 @@ ParaChoque::ParaChoque(){
 
 bool ParaChoque::CalcularColisao(int** matriz,int posicaoFuturaX, int posicaoFuturaY){
     if(matriz[posicaoFuturaX][posicaoFuturaY]!=0){
-        return false;
         cout<<"Tem obstaculo"<<endl;
+        return false;
     }else{
-        return true;
         cout<<"Nao tem obstaculo"<<endl;
+        return true;
     }
 }

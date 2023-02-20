@@ -153,16 +153,24 @@ void Modelo01::Limpar(int x, int y){
 }
 
 bool Modelo01::mover(int** pp_ambienteReal,int novaPosicaoX, int novaPosicaoY){
-    if(ParaChoqueRobo.CalcularColisao(pp_ambienteReal,novaPosicaoX,novaPosicaoY)&&(novaPosicaoX<dimAmbiente[0]&&novaPosicaoY<dimAmbiente[1])){
-        cout<<"O robo vai se mover"<<endl;
-        pp_ambienteRobo[posicaoAtualRobo[0]][posicaoAtualRobo[1]]=2;
-        posicaoAtualRobo[0]=novaPosicaoX;
-        posicaoAtualRobo[1]=novaPosicaoY;
-        bateriaDoRobo.Descarregar();
-        pp_ambienteRobo[novaPosicaoX][novaPosicaoY] = 88;
-        return true;
+    cout<<"O robo esta nessa posicao: x: "<<posicaoAtualRobo[0]<<" y:" <<posicaoAtualRobo[1]<<endl;
+    cout<<"O robo vai tentar ir para posicao: x: "<< novaPosicaoX<<" e y: "<<novaPosicaoY<<endl;
+
+    if((novaPosicaoX<dimAmbiente[0]&&novaPosicaoY<dimAmbiente[1])&&(novaPosicaoX>=0&&novaPosicaoY>=0)){
+        if(ParaChoqueRobo.CalcularColisao(pp_ambienteReal,novaPosicaoX,novaPosicaoY)){
+            cout<<"O robo vai se mover"<<endl;
+            pp_ambienteRobo[posicaoAtualRobo[0]][posicaoAtualRobo[1]]=2;
+            posicaoAtualRobo[0]=novaPosicaoX;
+            posicaoAtualRobo[1]=novaPosicaoY;
+            bateriaDoRobo.Descarregar();
+            pp_ambienteRobo[novaPosicaoX][novaPosicaoY] = 88;
+            return true;
+        }else{
+            cout<<"O robo nao pode se mover, tem obstaculo"<<endl;
+            return false;
+        }
     }else{
-        cout<<"O robo nao pode se mover"<<endl;
+        cout<<"O robo nao pode se mover, fora do mapa"<<endl;
         return false;
     }
 }
@@ -173,29 +181,46 @@ void Modelo01:: Ligar(int** pp_ambienteReal){
         //direita
         posicaoFutura[0] = posicaoAtualRobo[0];
         posicaoFutura[1] = posicaoAtualRobo[1]+1;
-        while(mover(pp_ambienteReal,posicaoFutura[0],posicaoFutura[1])){
+        while(mover(pp_ambienteReal,posicaoFutura[0],posicaoFutura[1])&&bateriaDoRobo.nivel>0){
             printAmbienteRobo();
+            cout<<"O robo se moveu para Direita"<<endl;
+            posicaoFutura[0] = posicaoAtualRobo[0];
+            posicaoFutura[1] = posicaoAtualRobo[1]+1;
             // se move
         }
+
         //baixo
-        posicaoFutura[0] = posicaoAtualRobo[0]-1;
+        posicaoFutura[0] = posicaoAtualRobo[0]+1;
         posicaoFutura[1] = posicaoAtualRobo[1];
-        while(mover(pp_ambienteReal,posicaoFutura[0],posicaoFutura[1])){
+
+        while(mover(pp_ambienteReal,posicaoFutura[0],posicaoFutura[1])&&bateriaDoRobo.nivel>0){
             printAmbienteRobo();
+            cout<<"O robo se moveu para Baixo"<<endl;
+            posicaoFutura[0] = posicaoAtualRobo[0]+1;
+            posicaoFutura[1] = posicaoAtualRobo[1];            
             // se move
         }
+
         //esquerda
         posicaoFutura[0] = posicaoAtualRobo[0];
         posicaoFutura[1] = posicaoAtualRobo[1]-1;
-        while(mover(pp_ambienteReal,posicaoFutura[0],posicaoFutura[1])){
+
+        while(mover(pp_ambienteReal,posicaoFutura[0],posicaoFutura[1])&&bateriaDoRobo.nivel>0){
             printAmbienteRobo();
+            cout<<"O robo se moveu para Esquerda"<<endl;
+            posicaoFutura[0] = posicaoAtualRobo[0];
+            posicaoFutura[1] = posicaoAtualRobo[1]-1;
             // se move
         }
         //cima
-        posicaoFutura[0] = posicaoAtualRobo[0]+1;
+        posicaoFutura[0] = posicaoAtualRobo[0]-1;
         posicaoFutura[1] = posicaoAtualRobo[1];
-        while(mover(pp_ambienteReal,posicaoFutura[0],posicaoFutura[1])){
+
+        while(mover(pp_ambienteReal,posicaoFutura[0],posicaoFutura[1])&&bateriaDoRobo.nivel>0){
             printAmbienteRobo();
+            cout<<"O robo se moveu para Cima"<<endl;
+            posicaoFutura[0] = posicaoAtualRobo[0]-1;
+            posicaoFutura[1] = posicaoAtualRobo[1];
             // se move
         }
         
