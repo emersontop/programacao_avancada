@@ -210,7 +210,7 @@ void Ambiente::addObstaculoCelula(int x, int y){
         for(int i=0;i<dimAmbiente[0];i++){
             for(int j=0;j<dimAmbiente[1];j++){
                 if(i==x && j==y){
-                    pp_ambiente[i][j]=1;//como se um representasse o obstaculo
+                    pp_ambiente[i][j]=111;//como se um representasse o obstaculo
                 }
             }
         }

@@ -5,7 +5,7 @@ class Bateria{
     public:
         //Atributos
         int nivel;
-        int nivelMax = 30;
+        int nivelMax = 50;
 
         //metodos
         //construtor

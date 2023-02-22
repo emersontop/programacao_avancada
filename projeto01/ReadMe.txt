@@ -13,7 +13,7 @@ POSSIVEIS ERROS NA ENTRADA DE DADOS DO ARQUIVO:
 ====================================
 Descrição visual do ambiente em formato de matriz
 - 0 > Representa uma area vazia;
-- 1 > Representa que a celual tem obstaculo
-- 111 > representa o ponto de recarga/local inicial do robô.
+- 111 > Representa que a celula tem obstaculo
+- 222 > representa o ponto de recarga/local inicial do robô.
 - 88 > representa a posicao atual do robô
 - 2 > Ambiente limpo
