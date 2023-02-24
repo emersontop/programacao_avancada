@@ -3,7 +3,7 @@ oNumeroDeColunas:8
 posicaoInicialX:0
 posicaoInicialY:0
 numObstaculoCelula:4
-obstaculoCelulaX:1,2,3,4,
+obstaculoCelulaX:1,1,4,4,
 obstaculoCelulaY:1,2,3,4,
 numObstaculoRetangulo:1,
 obstaculoRecInicial:5,5,

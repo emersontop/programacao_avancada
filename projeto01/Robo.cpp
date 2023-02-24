@@ -163,6 +163,7 @@ void Modelo01::Limpar(int x, int y){
 
 void Modelo01::DecideMovimento(){
     int menor;
+    int posicaoMenor;
     int opcoes[4];
     if((posicaoAtualRobo[0]<dimAmbiente[0]&&(posicaoAtualRobo[1]+1)<dimAmbiente[1])&&(posicaoAtualRobo[0]>=0&&(posicaoAtualRobo[1]+1)>=0)){
         opcoes[0]=pp_ambienteRobo[posicaoAtualRobo[0]][posicaoAtualRobo[1]+1];
@@ -201,30 +202,45 @@ void Modelo01::DecideMovimento(){
     for(int i=0;i<4;i++){
         if(opcoes[i]<menor){
             menor=opcoes[i];
+            posicaoMenor = i;
         }
         cout<<opcoes[i]<<",";
     }
     cout<<endl;
     cout<<"O menor valor e: "<<menor<<endl;
+    cout<<"na posicao: "<<posicaoMenor<<endl;
 
-    if(menor==pp_ambienteRobo[posicaoAtualRobo[0]][posicaoAtualRobo[1]+1]){
+    switch (posicaoMenor){
+    case 0:
         proximaPosicao[0]=posicaoAtualRobo[0];
         proximaPosicao[1]=posicaoAtualRobo[1]+1;
         cout<<"0 vou pra direita:"<<endl;
         cout<<"Proxima posicao linha: "<<proximaPosicao[0]<<endl;
         cout<<"Proxima posicao coluna: "<<proximaPosicao[1]<<endl;
-    }else if(menor==pp_ambienteRobo[posicaoAtualRobo[0]+1][posicaoAtualRobo[1]]){
+        break;
+    case 1:
         proximaPosicao[0]=posicaoAtualRobo[0]+1;
         proximaPosicao[1]=posicaoAtualRobo[1];
         cout<<"1 vou pra baixo:"<<endl;
-    }else if(menor==pp_ambienteRobo[posicaoAtualRobo[0]][posicaoAtualRobo[1]-1]){
+        cout<<"Proxima posicao linha: "<<proximaPosicao[0]<<endl;
+        cout<<"Proxima posicao coluna: "<<proximaPosicao[1]<<endl;
+        break;
+    case 2:
         proximaPosicao[0]=posicaoAtualRobo[0];
         proximaPosicao[1]=posicaoAtualRobo[1]-1;
         cout<<"2 vou pra esquerda:"<<endl;
-    }else if(menor==pp_ambienteRobo[posicaoAtualRobo[0]-1][posicaoAtualRobo[1]]){
+        cout<<"Proxima posicao linha: "<<proximaPosicao[0]<<endl;
+        cout<<"Proxima posicao coluna: "<<proximaPosicao[1]<<endl;
+        break;
+    case 3:
         proximaPosicao[0]=posicaoAtualRobo[0]-1;
         proximaPosicao[1]=posicaoAtualRobo[1];
         cout<<"3 vou pra cima:"<<endl;
+        cout<<"Proxima posicao linha: "<<proximaPosicao[0]<<endl;
+        cout<<"Proxima posicao coluna: "<<proximaPosicao[1]<<endl;
+        break;
+    default:
+        break;
     }
 }
 
@@ -262,72 +278,18 @@ bool Modelo01::mover(int** pp_ambienteReal,int novaPosicaoX, int novaPosicaoY){
 }
 
 void Modelo01:: LigarUP(int** pp_ambienteReal){
-    while(bateriaDoRobo.nivel>0){
+    while(bateriaDoRobo.nivel>1){
         int respostarapida;
-        cout<<"Deseja se mover? (0/1) "<<endl;
-        cin>> respostarapida;
+        //cout<<"Deseja se mover? (0/1) "<<endl;
+        //cin>> respostarapida;
         if(respostarapida){
             DecideMovimento();
             mover(pp_ambienteReal,proximaPosicao[0],proximaPosicao[1]);
             printAmbienteRobo(posicaoAtualRobo[0],posicaoAtualRobo[1]);
         }
     }
+    cout<<"O robo vai desligar"<<endl;
 }
-
-void Modelo01:: Ligar(int** pp_ambienteReal){
-    int posicaoFutura[2];
-    while(bateriaDoRobo.nivel>0){
-        //direita
-        posicaoFutura[0] = posicaoAtualRobo[0];
-        posicaoFutura[1] = posicaoAtualRobo[1]+1;
-        while(mover(pp_ambienteReal,posicaoFutura[0],posicaoFutura[1])){
-            printAmbienteRobo(posicaoAtualRobo[0],posicaoAtualRobo[1]);
-            cout<<"O robo se moveu para Direita"<<endl;
-            posicaoFutura[0] = posicaoAtualRobo[0];
-            posicaoFutura[1] = posicaoAtualRobo[1]+1;
-            // se move
-        }
-
-        //baixo
-        posicaoFutura[0] = posicaoAtualRobo[0]+1;
-        posicaoFutura[1] = posicaoAtualRobo[1];
-
-        while(mover(pp_ambienteReal,posicaoFutura[0],posicaoFutura[1])){
-            printAmbienteRobo(posicaoAtualRobo[0],posicaoAtualRobo[1]);
-            cout<<"O robo se moveu para Baixo"<<endl;
-            posicaoFutura[0] = posicaoAtualRobo[0]+1;
-            posicaoFutura[1] = posicaoAtualRobo[1];            
-            // se move
-        }
-
-        //esquerda
-        posicaoFutura[0] = posicaoAtualRobo[0];
-        posicaoFutura[1] = posicaoAtualRobo[1]-1;
-
-        while(mover(pp_ambienteReal,posicaoFutura[0],posicaoFutura[1])){
-            printAmbienteRobo(posicaoAtualRobo[0],posicaoAtualRobo[1]);
-            cout<<"O robo se moveu para Esquerda"<<endl;
-            posicaoFutura[0] = posicaoAtualRobo[0];
-            posicaoFutura[1] = posicaoAtualRobo[1]-1;
-            // se move
-        }
-        //cima
-        posicaoFutura[0] = posicaoAtualRobo[0]-1;
-        posicaoFutura[1] = posicaoAtualRobo[1];
-
-        while(mover(pp_ambienteReal,posicaoFutura[0],posicaoFutura[1])){
-            printAmbienteRobo(posicaoAtualRobo[0],posicaoAtualRobo[1]);
-            cout<<"O robo se moveu para Cima"<<endl;
-            posicaoFutura[0] = posicaoAtualRobo[0]-1;
-            posicaoFutura[1] = posicaoAtualRobo[1];
-            // se move
-        }
-        
-    }
-}
-
-
-
 
 
 // classe robo> Modelo02

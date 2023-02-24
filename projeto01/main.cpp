@@ -20,5 +20,6 @@ int main(){
     Modelo01 obelix("obelix","entradas.txt");
     //obelix.printAmbienteRobo();
     obelix.LigarUP(cozinha.pp_ambiente);
+    cozinha.printAmbiente();
     return 0;
 }
