@@ -6,9 +6,10 @@ class Laser{
         int dimLaser[2] = {3,3};
         int** pp_areaLaser;
         Laser();
-        void calcularColisao(int** matriz, int posicaoAtualRoboX, int posicaoAtualRoboY);
+        void calcularColisao(int** matriz, int posicaoAtualRoboX, int posicaoAtualRoboY, int dimensaoAmbienteX,int dimensaoAmbienteY);
         void alocarMemoria();
         void prencherZeros();
+        void printAreaLaser();
 
 };
 

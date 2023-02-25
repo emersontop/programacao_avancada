@@ -279,9 +279,10 @@ bool Modelo01::mover(int** pp_ambienteReal,int novaPosicaoX, int novaPosicaoY){
 
 void Modelo01:: LigarUP(int** pp_ambienteReal){
     while(bateriaDoRobo.nivel>1){
+        //LaserRobo.calcularColisao(pp_ambienteReal,posicaoAtualRobo[0],posicaoAtualRobo[1],dimAmbiente[0],dimAmbiente[1]);
         int respostarapida;
-        //cout<<"Deseja se mover? (0/1) "<<endl;
-        //cin>> respostarapida;
+        cout<<"Deseja se mover? (0/1) "<<endl;
+        cin>> respostarapida;
         if(respostarapida){
             DecideMovimento();
             mover(pp_ambienteReal,proximaPosicao[0],proximaPosicao[1]);
@@ -298,19 +299,48 @@ Modelo02::Modelo02(string nome, string entradas):Robo(nome,entradas){
 }
 
 void Modelo02::Limpar(int x, int y){
-    cout<<"Area limpa"<<endl;
+    if((x==posicaoInicial[0])&&(y==posicaoInicial[1])){
+        cout<<"Area limpa"<<endl;
+    }else{
+        pp_ambienteRobo[x][y]+=1;
+        cout<<"Area limpa"<<endl;
+    }  
 }
 
-void Modelo02::mover(int** pp_ambienteReal,int novaPosicaoX, int novaPosicaoY){
-    if(ParaChoqueRobo.CalcularColisao(pp_ambienteReal,novaPosicaoX,novaPosicaoY)){
-        cout<<"O robo vai se mover"<<endl;
-        pp_ambienteRobo[posicaoAtualRobo[0]][posicaoAtualRobo[1]]=2;
-        posicaoAtualRobo[0]=novaPosicaoX;
-        posicaoAtualRobo[1]=novaPosicaoY;
-        bateriaDoRobo.Descarregar();
-        pp_ambienteRobo[novaPosicaoX][novaPosicaoY] = 88;
+void Modelo02::DecideMovimento(){
+    
+}
+
+bool Modelo02::mover(int** pp_ambienteReal,int novaPosicaoX, int novaPosicaoY){
+    cout<<"O robo esta nessa posicao: x: "<<posicaoAtualRobo[0]<<" y:" <<posicaoAtualRobo[1]<<endl;
+    cout<<"O robo vai tentar ir para posicao: x: "<< novaPosicaoX<<" e y: "<<novaPosicaoY<<endl;
+    if(bateriaDoRobo.nivel>0){
+        //Teste de nivel de bateria
+        if((novaPosicaoX<dimAmbiente[0]&&novaPosicaoY<dimAmbiente[1])&&(novaPosicaoX>=0&&novaPosicaoY>=0)){
+            //teste se a posição esta em um local valido
+            if(ParaChoqueRobo.CalcularColisao(pp_ambienteReal,novaPosicaoX,novaPosicaoY)){
+                //teste de obstaculo
+                cout<<"O robo vai se mover"<<endl;
+
+                Limpar(posicaoAtualRobo[0],posicaoAtualRobo[1]);
+
+                posicaoAtualRobo[0]=novaPosicaoX;
+                posicaoAtualRobo[1]=novaPosicaoY;
+
+                bateriaDoRobo.Descarregar();
+                return true;
+            }else{
+                cout<<"O robo nao pode se mover, tem obstaculo"<<endl;
+                pp_ambienteRobo[novaPosicaoX][novaPosicaoY] = 111;
+                return false;
+            }
+        }else{
+            cout<<"O robo nao pode se mover, fora do mapa"<<endl;
+            return false;
+        }
     }else{
-        cout<<"O robo nao pode se mover"<<endl;
+        cout<<"O robo nao pode se mover, bateria acabou"<<endl;
+        return false;
     }
 }
 

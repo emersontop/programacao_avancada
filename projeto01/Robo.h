@@ -4,6 +4,7 @@
 #include <string>
 #include "Bateria.h"
 #include "ParaChoque.h"
+#include "Laser.h"
 
 using namespace std;
 
@@ -29,6 +30,7 @@ class Robo{
         int** pp_ambienteRobo;
         //parachoque
         ParaChoque ParaChoqueRobo;
+        Laser LaserRobo;
 
         //metodos
         //construtor
@@ -49,7 +51,6 @@ class Modelo01:public Robo{
         Modelo01(string nome, string entradas);
         void Limpar(int x, int y);
         bool mover(int** pp_ambienteReal,int novaPosicaoX, int novaPosicaoY);
-        void Ligar(int** pp_ambienteReal);
         void LigarUP(int** pp_ambienteReal);
         void DecideMovimento();
 };
@@ -65,7 +66,8 @@ class Modelo02:public Robo{
         //construtor
         Modelo02(string nome, string entradas);
         void Limpar(int x, int y);
-        void mover(int** pp_ambienteReal,int novaPosicaoX, int novaPosicaoY);
+        bool mover(int** pp_ambienteReal,int novaPosicaoX, int novaPosicaoY);
         void Ligar();
+        void DecideMovimento();
 };
 #endif

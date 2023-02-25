@@ -2,6 +2,7 @@
 //g++ main.cpp Ambiente.cpp Robo.cpp -o main
 //g++ main.cpp Ambiente.cpp Robo.cpp Bateria.cpp -o main
 //g++ main.cpp Ambiente.cpp Robo.cpp Bateria.cpp ParaChoque.cpp -o main
+//g++ main.cpp Ambiente.cpp Robo.cpp Bateria.cpp ParaChoque.cpp Laser.cpp -o main
 //./main 
 
 #include <iostream>
@@ -11,6 +12,7 @@
 #include "Robo.h"
 #include "Bateria.h"
 #include "ParaChoque.h"
+#include "Laser.h"
 
 using namespace std;
 
