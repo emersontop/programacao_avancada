@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -51,7 +53,7 @@ class Lista{
             head = inicio;          //retornar para o inicio
         }
 
-        //procurar no
+        //procurar na lista
         Node* procuraNode(Node nodeProcurado){
             cout<<"Vou procurar o no"<<endl;
             Node* inicio = head;    //salvar o inicio
@@ -69,7 +71,7 @@ class Lista{
             return retorno;
         }
 
-        //excluir no
+        //excluir da lista
         void excluirNode(Node nodeExcluido){
             Node* inicio = head;
             Node* Anterior = head;
@@ -86,6 +88,20 @@ class Lista{
             head = inicio;
         }
 };
+
+Lista learquivo(string entradas, Lista listaEntradas){
+    string line;
+    
+    ifstream myfile("entradas.txt");
+
+    if(myfile.is_open()){
+        while(getline(myfile,line)){
+            //me perdi
+        }
+    }
+
+    return listaEntradas;
+}
 
 int main(){
     //inicinaod a lista
