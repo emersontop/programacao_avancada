@@ -9,6 +9,7 @@
         "vector": "cpp",
         "initializer_list": "cpp",
         "iosfwd": "cpp",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "new": "cpp"
     }
 }
