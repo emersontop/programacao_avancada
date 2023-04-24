@@ -206,7 +206,7 @@ void Modelo01::DecideMovimento(){
         }
         cout<<opcoes[i]<<",";
     }
-    cout<<endl;
+    cout<<endl;     
     cout<<"O menor valor e: "<<menor<<endl;
     cout<<"na posicao: "<<posicaoMenor<<endl;
 
