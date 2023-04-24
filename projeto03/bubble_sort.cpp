@@ -2,46 +2,44 @@
 
 using namespace std;
 
-void ordenarArranjo(int* arranjo, int tamanho)
+//UFPE - CTG
+//Alunos: Emerson e Sanclay
+
+void printArray(int arr[],int tamanho)
 {
-    int temp;
-    int j = 0;
-    while(j<(tamanho-2))
+    //Printa o arranjo
+    for(int i =0;i<tamanho;i++)
     {
-        for(int i=0;i<(tamanho-j);i++)
-        {
-            if(arranjo[i]>arranjo[i+1])
-            {
-                temp=arranjo[i+1];
-                arranjo[i+1]=arranjo[i];
-                arranjo[i]=temp;
-            }
-        }
-        cout<<"Arranjo na " <<(j+1)<<") ordenacao:"<<endl;
-        for(int i=0;i<tamanho;i++)
-        {
-            cout<<arranjo[i]<<", ";
-        }
-        cout<<endl;
-        cout<<endl;
-        j++;
+        cout<< arr[i]<<" ";
     }
+    cout<< endl;
 };
 
+void bubbleSort(int* arranjo, int tamanho)
+{
+    for(int i=0;i<tamanho-1;i++)
+    {
+        for(int j=0;j<tamanho-i-1;j++)
+        {
+            if(arranjo[j]>arranjo[j+1])
+            {
+                swap(arranjo[j],arranjo[j+1]);
+            }
+        }
+    }
+    cout<<"Arranjo organizado via bubble sort"<<endl;
+    printArray(arranjo,tamanho);
+};
 
 int main(){
-    int arranjo[10]={7,1,-4,2,5,2,9,6,3,0};
-    int tamanho = 10;
+    int arranjo[20]={31, 9, 4, 7, 3, 18, 23, 54, 99, 87, 54, 35, 90, 1, 22, 30, 49, 77, 5, 76};
+
+    int tamanho = sizeof(arranjo)/sizeof(arranjo[0]);
 
     cout<<"Arranjo original"<<endl;
-    for(int i=0;i<tamanho;i++)
-    {
-        cout<<arranjo[i]<<", ";
-    }
-    cout<<endl;
-    cout<<endl;
+    printArray( arranjo, tamanho);
 
-    ordenarArranjo(arranjo,tamanho);
+    bubbleSort(arranjo,tamanho);
 
     return 0;
 }
